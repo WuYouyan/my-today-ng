@@ -1,0 +1,10 @@
+<div class="full-screen page-content">
+    <div class="wrapper">
+        <img class="logo-img" src="./assets/image/logo.png" alt="">
+        <div class="text-wrapper">
+            <h1 class="title-text">Today</h1>
+        </div>
+        <input nz-input placeholder="please enter your favorite username" [(ngModel)]="username" #usernameInput>
+        <button nz-button nzType="'primary'" (click)="completeSetup()" [disabled]="!usernameInput.value">Start</button>
+    </div>
+</div>>
