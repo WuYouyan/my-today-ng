@@ -8,7 +8,7 @@ const ls = localStorage;
 export class LocalStorageService {
 
   constructor() { }
-  
+
   public get<T>(key: string): any {
     return JSON.parse(ls.getItem(key)) as T;
   }
@@ -17,12 +17,12 @@ export class LocalStorageService {
     const before = ls.getItem(key);
     return before ? (JSON.parse(before)) as T[] : [];
   }
-  
+
   public set<T>(key: string, value: any): void {
-    if (!value && value === undefined) { return ;}
+    if (!value && value === undefined) { return ; }
     const arr = JSON.stringify(value);
-    ls.setItem(key, arr);      
+    ls.setItem(key, arr);
   }
 
-  
+
 }

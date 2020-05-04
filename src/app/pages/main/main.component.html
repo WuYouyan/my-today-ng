@@ -1,0 +1,8 @@
+<nz-layout class="full-screen">
+    <nz-sider nzCollapsible [(nzCollapsed)]="iscollapsed" [nzWidth]="260">
+        <app-left-control [isCollapsed]="iscollapsed"></app-left-control>
+    </nz-sider>
+    <nz-content class="container">
+    </nz-content>
+</nz-layout>
+<router-outlet></router-outlet>

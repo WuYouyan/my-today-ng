@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
-import { 
-  INIT_FLAG, 
-  START_USING_DATE, 
-  USERNAME 
+import {
+  INIT_FLAG,
+  START_USING_DATE,
+  USERNAME
 } from 'src/app/services/local-storage/local-storage.namespace';
 import { getTodayTime } from 'src/utils/time';
 
@@ -13,7 +13,7 @@ import { getTodayTime } from 'src/utils/time';
   styleUrls: ['./setup.component.less']
 })
 export class SetupComponent implements OnInit {
-  username: string
+  username: string;
 
   constructor(
     private store: LocalStorageService
