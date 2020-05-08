@@ -26,30 +26,30 @@
     <li nz-menu-item
         (click)="openRenameListModal()">
       <i class="anticon anticon-edit anticon-right-margin"></i>
-      <span>重命名</span>
+      <span>rename</span>
     </li>
     <li nz-menu-divider></li>
     <li nz-menu-item
         (click)="delete()">
       <i class="anticon anticon-delete anticon-right-margin danger"></i>
-      <span class="danger">删除列表</span>
+      <span class="danger">remove list</span>
     </li>
   </ul>
 </nz-dropdown-menu>
 
 <nz-modal [(nzVisible)]="addListModalVisible"
-          [nzTitle]="'添加新列表'"
+          [nzTitle]="'add new list'"
           [nzClosable]="true"
           [nzWidth]="420"
-          [nzOkText]="'添加'"
-          [nzCancelText]="'取消'"
+          [nzOkText]="'add'"
+          [nzCancelText]="'cancel'"
           [nzMaskClosable]="true"
           (nzOnCancel)="closeAddListModal()"
           (nzOnOk)="add(listInput.value); listInput.value = '';">
   <form nz-form>
     <nz-form-item>
       <nz-form-control>
-        <input nz-input #listInput name="listTitle" placeholder="列表名称"
+        <input nz-input #listInput name="listTitle" placeholder="list name"
                (keydown.enter)="add(listInput.value); listInput.value = '';">
       </nz-form-control>
     </nz-form-item>
@@ -57,18 +57,18 @@
 </nz-modal>
 
 <nz-modal [(nzVisible)]="renameListModalVisible"
-          [nzTitle]="'重命名列表'"
+          [nzTitle]="'rename list'"
           [nzClosable]="true"
           [nzWidth]="420"
-          [nzOkText]="'重命名'"
-          [nzCancelText]="'取消'"
+          [nzOkText]="'rename'"
+          [nzCancelText]="'cancel'"
           [nzMaskClosable]="true"
           (nzOnCancel)="closeRenameListModal()"
           (nzOnOk)="rename(listRenameInput.value); listRenameInput.value = '';">
   <form nz-form>
     <nz-form-item>
       <nz-form-control>
-        <input nz-input #listRenameInput placeholder="列表名称" name="renameListTitle"
+        <input nz-input #listRenameInput placeholder="list name" name="renameListTitle"
             (keydown.enter)="rename(listRenameInput.value); listRenameInput.value = '';">
       </nz-form-control>
     </nz-form-item>

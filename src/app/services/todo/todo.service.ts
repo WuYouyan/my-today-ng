@@ -6,22 +6,34 @@ import { TODOS } from '../local-storage/local-storage.namespace';
 import { ListService } from '../list/list.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { floorToMinute, ONE_HOUR, getCurrentTime } from 'src/utils/time';
+import { RankBy } from 'src/domain/type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
   todo$ = new Subject<Todo[]>();
+  rank$ = new Subject<RankBy>();
 
   private todos: Todo[] = [];
+  private rank: RankBy = 'title';
+
   constructor(
     private listService: ListService,
     private store: LocalStorageService
   ) {
-    this.todo$ = this.store.get(TODOS);
+    this.todos = this.store.get(TODOS);
   }
+
   private broadCast(): void {
     this.todo$.next(this.todos);
+    this.rank$.next(this.rank);
+  }
+
+  toggleRank(rankBy: RankBy): void {
+    console.log("todoService toggleRank: ", rankBy);
+    this.rank = rankBy;
+    this.rank$.next(rankBy);
   }
 
   private persist(): void {
@@ -34,7 +46,6 @@ export class TodoService {
   }
 
   getRaw(): Todo[] {
-    // if (!this.todos.length) { this.todos = this.store.getList(TODOS); }
     return this.todos;
   }
 
@@ -104,4 +115,5 @@ export class TodoService {
     const toDelete = this.todos.filter(t => t.listUUID === uuid);
     toDelete.forEach(t => this.delete(t._id));
   }
+  
 }

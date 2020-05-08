@@ -13,10 +13,13 @@ export class LeftControlComponent implements OnInit {
   @ViewChild(ListComponent) listComponent: ListComponent;
 
   username: string;
-  constructor(private store: LocalStorageService) { }
+  constructor(
+    private store: LocalStorageService,
+
+    ) { }
 
   ngOnInit(): void {
-    this.username = this.store.get(USERNAME);
+    this.username = this.store.get(USERNAME) ? this.store.get(USERNAME):'Default user name';
   }
 
   goSetting(): void {
