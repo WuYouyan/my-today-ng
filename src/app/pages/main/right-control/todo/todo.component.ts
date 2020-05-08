@@ -16,7 +16,9 @@ const rankerGenerator = (type: RankBy = 'title'): any => {
   if (type === 'completeFlag') {
     return (t1:Todo, t2: Todo) => t1.completedFlag && !t2.completedFlag;
   }
-  return (t1:Todo, t2: Todo) => t1[type] > t2[type];
+  return (t1:Todo, t2: Todo) => {
+    return  t1[type] > t2[type]? 1: (t1[type] == t2[type]? 0 : -1) ;
+  }
 }
 
 @Component({
