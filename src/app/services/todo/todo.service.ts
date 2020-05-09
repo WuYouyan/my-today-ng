@@ -31,7 +31,6 @@ export class TodoService {
   }
 
   toggleRank(rankBy: RankBy): void {
-    console.log("todoService toggleRank: ", rankBy);
     this.rank = rankBy;
     this.rank$.next(rankBy);
   }

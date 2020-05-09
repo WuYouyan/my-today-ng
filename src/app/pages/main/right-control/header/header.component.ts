@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
   }
 
   switchRankType(e: RankBy): void {
-    console.log("order by: ", e);
     this.todoService.toggleRank(e);
   }
 }

@@ -13,6 +13,7 @@ import { HeaderComponent } from './right-control/header/header.component';
 import { QuickAddComponent } from './right-control/quick-add/quick-add.component';
 import { TodoComponent } from './right-control/todo/todo.component';
 import { SuggestComponent } from './right-control/header/suggest/suggest.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SuggestComponent } from './right-control/header/suggest/suggest.compone
     HeaderComponent,
     QuickAddComponent,
     TodoComponent,
-    SuggestComponent
+    SuggestComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,
