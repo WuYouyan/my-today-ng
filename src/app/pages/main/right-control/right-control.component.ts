@@ -8,8 +8,8 @@ import { TodoComponent } from './todo/todo.component';
 })
 export class RightControlComponent implements OnInit {
 
-  @ViewChild(TodoComponent) public todoList: TodoComponent;
-
+  @ViewChild(TodoComponent) todoList: TodoComponent;
+  
   constructor() { }
 
   ngOnInit(): void {

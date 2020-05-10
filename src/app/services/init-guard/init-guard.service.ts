@@ -29,7 +29,4 @@ export class InitGuardService implements CanActivate {
     return true;
   }
 
-  CanActivate(){
-    return true;
-  }
 }

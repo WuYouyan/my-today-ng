@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SetupModule } from './pages/setup/setup.module';
 import { MainModule } from './pages/main/main.module';
+import { SummaryModule } from './pages/summary/summary.module';
 
 registerLocaleData(en);
 
@@ -29,7 +30,8 @@ registerLocaleData(en);
     NgZorroAntdModule,
     AppRoutingModule,
     SetupModule,
-    MainModule
+    MainModule,
+    SummaryModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
