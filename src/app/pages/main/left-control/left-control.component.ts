@@ -20,7 +20,7 @@ export class LeftControlComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.username = this.store.get(USERNAME) ? this.store.get(USERNAME):'Default user name';
+    this.username = this.store.get(USERNAME) ? this.store.get(USERNAME) : 'Default user name';
   }
 
   goSetting(): void {

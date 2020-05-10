@@ -5,7 +5,7 @@ import { InitGuardService } from 'src/app/services/init-guard/init-guard.service
 
 
 const routes: Routes = [
-  { 
+  {
     path: 'summary',
     component: SummaryComponent,
     pathMatch: 'full',

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subject, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { NzContextMenuService, NzDropdownMenuComponent } from "ng-zorro-antd";
+import { NzContextMenuService, NzDropdownMenuComponent } from 'ng-zorro-antd';
 
 import { ListService } from 'src/app/services/list/list.service';
 import { TodoService } from 'src/app/services/todo/todo.service';
@@ -14,12 +14,12 @@ import { floorToDate, getTodayTime } from 'src/utils/time';
 
 const rankerGenerator = (type: RankBy = 'title'): any => {
   if (type === 'completeFlag') {
-    return (t1:Todo, t2: Todo) => t1.completedFlag && !t2.completedFlag;
+    return (t1: Todo, t2: Todo) => t1.completedFlag && !t2.completedFlag;
   }
-  return (t1:Todo, t2: Todo) => {
-    return  t1[type] > t2[type]? 1: (t1[type] == t2[type]? 0 : -1) ;
-  }
-}
+  return (t1: Todo, t2: Todo) => {
+    return  t1[type] > t2[type] ? 1 : (t1[type] === t2[type] ? 0 : -1) ;
+  };
+};
 
 @Component({
   selector: 'app-todo',
@@ -27,13 +27,13 @@ const rankerGenerator = (type: RankBy = 'title'): any => {
   styleUrls: ['./todo.component.less']
 })
 export class TodoComponent implements OnInit, OnDestroy {
-  
+
   private destory$ = new Subject<any>();
 
   todos: Todo[] = [];
   lists: List[] = [];
   currentContextTodo: Todo;
-  
+
   constructor(
     private listService: ListService,
     private todoService: TodoService,
@@ -48,13 +48,13 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.lists = lists;
       });
 
-      combineLatest(this.listService.currentUuid$, this.todoService.todo$, this.todoService.rank$)
+    combineLatest([this.listService.currentUuid$, this.todoService.todo$, this.todoService.rank$])
       .pipe(takeUntil(this.destory$))
-      .subscribe(sources => {
-        this.processTodos(sources[0], sources[1], sources[2]);
+      .subscribe( ( [currentUuid, todo, rank] ) => {
+        this.processTodos(currentUuid, todo, rank);
       });
-      this.todoService.getAll();
-      this.listService.getAll();
+    this.todoService.getAll();
+    this.listService.getAll();
 
   }
 

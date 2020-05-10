@@ -7,9 +7,9 @@ import { InitGuardService } from 'src/app/services/init-guard/init-guard.service
 
 
 const routes: Routes = [
-  { path: 'main', 
+  { path: 'main',
     component: MainComponent,
-    canActivate: [ InitGuardService ], 
+    canActivate: [ InitGuardService ],
     children: [
       {
         path: ':id',

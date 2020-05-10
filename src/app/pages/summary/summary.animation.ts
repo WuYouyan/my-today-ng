@@ -1,4 +1,4 @@
-import { trigger, style, animate, transition, group, query } from '@angular/animations';
+import { trigger, style, animate, transition, query } from '@angular/animations';
 
 
 export const pageSwitchTransition = trigger('pageSwitchTransition', [

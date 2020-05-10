@@ -17,7 +17,7 @@ import { Summary } from 'src/domain/entities';
   animations: [pageSwitchTransition]
 })
 export class SummaryComponent implements OnInit {
-  
+
   username = this.store.get(USERNAME) || 'username';
   dateCount = Math.floor((getTodayTime() - this.store.get(START_USING_DATE)) / ONE_DAY + 1);
 
@@ -33,6 +33,7 @@ export class SummaryComponent implements OnInit {
   ngOnInit(): void {
     this.summaryService.doSummary();
   }
+
   requestForDate(date: Date): Summary | null {
     return this.summaryService.summaryForDate(date.getTime());
   }

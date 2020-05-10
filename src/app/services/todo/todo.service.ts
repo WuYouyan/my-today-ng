@@ -114,5 +114,5 @@ export class TodoService {
     const toDelete = this.todos.filter(t => t.listUUID === uuid);
     toDelete.forEach(t => this.delete(t._id));
   }
-  
+
 }

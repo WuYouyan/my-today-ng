@@ -9,8 +9,8 @@ import { SummaryService } from './summary.service';
 
 
 @NgModule({
-  declarations: [ 
-    SummaryComponent 
+  declarations: [
+    SummaryComponent
   ],
   imports: [
     CommonModule,

@@ -7,7 +7,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { Todo } from 'src/domain/entities';
 import { TodoService } from 'src/app/services/todo/todo.service';
 import { lessThanADay, floorToDate, getTodayTime, floorToMinute, getCurrentTime } from 'src/utils/time';
-import { detailTransition } from "./detail.animation";
+import { detailTransition } from './detail.animation';
 
 @Component({
   selector: 'app-detail',
@@ -24,7 +24,7 @@ export class DetailComponent implements OnInit {
   currentTodo: Todo;
   dueDate: Date;
   planDate: Date;
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,

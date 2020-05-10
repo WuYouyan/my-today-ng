@@ -11,7 +11,7 @@ import { RankBy } from 'src/domain/type';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
-  
+
   private listTitle$: Subscription;
 
   listTitle = '';

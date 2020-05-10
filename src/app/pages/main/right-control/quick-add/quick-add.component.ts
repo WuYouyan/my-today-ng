@@ -7,7 +7,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class QuickAddComponent implements OnInit {
   @Output() add = new EventEmitter<string>();
-  
+
   constructor() { }
 
   ngOnInit(): void {

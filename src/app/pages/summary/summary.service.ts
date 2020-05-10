@@ -14,7 +14,9 @@ export class SummaryService {
   constructor(
     private store: LocalStorageService,
     private todoService: TodoService
-  ) { }
+  ) {
+    this.summaries = this.loadSummaries();
+  }
 
   doSummary(): void {
     const todayDate = getTodayTime();
@@ -25,8 +27,13 @@ export class SummaryService {
     }
 
     const todos = this.todoService.getRaw();
+    /**
+     * A list if Todo object
+     * each todo's planAt (property) before today
+     *
+     */
     const todosToAna: Todo[] = [];
-    const summaries: Summary[] = [];
+    const newSummaries: Summary[] = [];
     const dates: number[] = [];
 
     todos.forEach((todo) => {
@@ -48,6 +55,7 @@ export class SummaryService {
       todosToAna.forEach(todo => {
         const planAt = floorToDate(todo.planAt);
         if (planAt <= date) {
+
           if (todo.completedFlag && floorToDate(todo.completedAt) === date) {
             completedItems.push(todo.title);
           } else if (
@@ -59,11 +67,15 @@ export class SummaryService {
         }
       });
 
-      summaries.push(new Summary(date, completedItems, uncompletedItems));
+      newSummaries.push(new Summary(date, completedItems, uncompletedItems));
     });
 
-    this.store.set(LAST_SUMMARY_DATE, lastDate);
-    this.addSummaries(summaries);
+    /**
+     * change LAST_SUMMARY_DATE of localStorage
+     */
+    this.store.set(LAST_SUMMARY_DATE, todayDate);
+    this.summaries = this.addSummaries(newSummaries);
+
   }
 
   public summaryForDate(date: number): Summary {
@@ -75,9 +87,17 @@ export class SummaryService {
     return this.store.getList<Summary>(SUMMARIES);
   }
 
-  private addSummaries(summaries: Summary[]): void {
+  /**
+   * will add new summary object list to existing summary object list in localstorage
+   *
+   * @param summaries a list of Summary object to be added
+   *
+   * @return the result of add by adding new summaries to old summaries
+   */
+  private addSummaries(summaries: Summary[]): Summary[] {
     const oldSummaries = this.loadSummaries();
     const newSummaries = oldSummaries.concat(summaries);
     this.store.set(SUMMARIES, newSummaries);
+    return newSummaries;
   }
 }
