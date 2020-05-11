@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SetupModule } from './pages/setup/setup.module';
 import { MainModule } from './pages/main/main.module';
 import { SummaryModule } from './pages/summary/summary.module';
+import { SettingModule } from './pages/setting/setting.module';
 
 registerLocaleData(en);
 
@@ -31,6 +32,7 @@ registerLocaleData(en);
     AppRoutingModule,
     SetupModule,
     MainModule,
+    SettingModule,
     SummaryModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

@@ -24,12 +24,13 @@ export class LeftControlComponent implements OnInit {
   }
 
   goSetting(): void {
-    this.route.navigateByUrl('setup');
+    this.route.navigateByUrl('setting');
   }
 
    goSummary(): void {
     this.route.navigateByUrl('summary');
   }
+  
   openAddListModal(): void {
     this.listComponent.openAddListModal();
   }
