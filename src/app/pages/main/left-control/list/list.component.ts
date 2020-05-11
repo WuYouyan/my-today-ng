@@ -22,7 +22,6 @@ export class ListComponent implements OnInit, OnDestroy {
   addListModalVisible = false;
   renameListModalVisible = false;
 
-  private dropdown: NzDropdownMenuComponent;
   private destroy$ = new Subject();
 
   constructor(
@@ -100,8 +99,8 @@ export class ListComponent implements OnInit, OnDestroy {
   delete(): void {
     const uuid = this.contextListUuid;
     this.modal.confirm({
-      nzTitle: '确认删除列表',
-      nzContent: '该操作会导致该列表下的所有待办事项被删除',
+      nzTitle: 'delete this list?',
+      nzContent: 'This action will cause all to-do items under this list to be deleted',
       nzOnOk: () =>
         new Promise((res, rej) => {
           this.listService.delete(uuid);

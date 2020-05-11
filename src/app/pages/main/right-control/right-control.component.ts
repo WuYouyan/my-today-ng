@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { TodoComponent } from './todo/todo.component';
 
 @Component({
@@ -6,15 +6,25 @@ import { TodoComponent } from './todo/todo.component';
   templateUrl: './right-control.component.html',
   styleUrls: ['./right-control.component.less']
 })
-export class RightControlComponent implements OnInit {
+export class RightControlComponent implements OnInit, AfterViewChecked {
 
   @ViewChild(TodoComponent) todoList: TodoComponent;
 
-  constructor() { }
+  todoListLength: boolean = false;
+  constructor(
+    private cdr: ChangeDetectorRef
+  ) { }
 
+  
   ngOnInit(): void {
   }
 
+  ngAfterViewChecked(): void {
+    this.todoListLength = this.todoList.todos.length === 0 ? true : false;
+    this.cdr.detectChanges();
+  }
+
+  
   add(title: string){
     this.todoList.add(title);
   }

@@ -15,7 +15,7 @@
     [nzSelected]="currentListUuid === list._id"  (click)="click(list._id)"
       (contextmenu)="contextMenu($event, menu, list._id)">
     <span>
-      <i class="anticon anticon-bars"></i>
+      <i nz-icon nzType="bars"></i>
       <span class="nav-text">{{ list.title }}</span>
     </span>
   </li>
@@ -25,13 +25,13 @@
   <ul nz-menu nzInDropDown nzSelectable (nzClick)="close()">
     <li nz-menu-item
         (click)="openRenameListModal()">
-      <i class="anticon anticon-edit anticon-right-margin"></i>
+      <i nz-icon nzType="edit" class="anticon-right-margin"></i>
       <span>rename</span>
     </li>
     <li nz-menu-divider></li>
     <li nz-menu-item
         (click)="delete()">
-      <i class="anticon anticon-delete anticon-right-margin danger"></i>
+      <i nz-icon nzType="delete" class="anticon-right-margin danger"></i>
       <span class="danger">remove list</span>
     </li>
   </ul>
