@@ -18,10 +18,10 @@
         <ng-template #nzDescription>
           <span *ngIf="item.dueAt"
                 class="todo-desc">
-            <i nz-icon nzType="calendar"></i>{{ item.dueAt | date }}</span>
+            <i nz-icon nzType="clock-circle"></i>{{ item.dueAt | date }}</span>
           <span *ngIf="item.planAt"
                 class="todo-desc">
-            <i nz-icon nzType="clock-circle"></i> {{ item.planAt | date }}</span>
+            <i nz-icon nzType="calendar"></i> {{ item.planAt | date }}</span>
           <span *ngIf="item.notifyMe"
                 class="todo-desc">
             <i nz-icon nzType="bell"></i>
