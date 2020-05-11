@@ -30,7 +30,7 @@ export class LeftControlComponent implements OnInit {
    goSummary(): void {
     this.route.navigateByUrl('summary');
   }
-  
+
   openAddListModal(): void {
     this.listComponent.openAddListModal();
   }

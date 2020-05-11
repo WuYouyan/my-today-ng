@@ -15,7 +15,7 @@ export class ListService {
   private lists: List[] = [];
 
   currentUuid: SpecialListUUID | string = 'today';
-  
+
   currentUuid$ = new Subject<string>();
   current$ = new Subject<List>();
   lists$ = new Subject<List[]>();

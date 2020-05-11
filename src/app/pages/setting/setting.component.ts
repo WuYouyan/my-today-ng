@@ -25,18 +25,18 @@ export class SettingComponent implements OnInit, AfterViewInit {
     private msg: NzMessageService,
     private store: LocalStorageService
   ) { }
-  
+
   ngOnInit(): void {
     this.avatar = this.store.get(AVATAR_CODE);
     this.username = this.store.get(USERNAME);
   }
-  
+
   ngAfterViewInit(): void {
       this.usernameInput.nativeElement.value = this.username;
   }
-  
+
   goBack(): void {
-    this.router.navigateByUrl('main')
+    this.router.navigateByUrl('main');
   }
 
   validateUsername(username: string): void {
@@ -45,7 +45,7 @@ export class SettingComponent implements OnInit, AfterViewInit {
       this.usernameInput.nativeElement.value = this.username;
     } else if (username !== this.username) {
       this.username = username;
-      this.store.set(USERNAME,username);
+      this.store.set(USERNAME, username);
       this.msg.success('user name is modified!');
     }
   }

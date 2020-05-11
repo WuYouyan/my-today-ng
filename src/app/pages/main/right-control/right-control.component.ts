@@ -10,12 +10,12 @@ export class RightControlComponent implements OnInit, AfterViewChecked {
 
   @ViewChild(TodoComponent) todoList: TodoComponent;
 
-  todoListLength: boolean = false;
+  todoListLength = false;
   constructor(
     private cdr: ChangeDetectorRef
   ) { }
 
-  
+
   ngOnInit(): void {
   }
 
@@ -24,7 +24,7 @@ export class RightControlComponent implements OnInit, AfterViewChecked {
     this.cdr.detectChanges();
   }
 
-  
+
   add(title: string){
     this.todoList.add(title);
   }
