@@ -35,7 +35,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   currentContextTodo: Todo;
 
   constructor(
-    private listService: ListService,
+    public listService: ListService,
     private todoService: TodoService,
     private dropdownService: NzContextMenuService,
     private router: Router
@@ -101,6 +101,13 @@ export class TodoComponent implements OnInit, OnDestroy {
 
   delete(): void {
     this.todoService.delete(this.currentContextTodo._id);
+  }
+
+  /**
+   * remove all todos in current list
+   */
+  deleteAll(): void {
+    this.todoService.deleteInList(this.listService.getCurrentListUuid());
   }
 
   setToday(): void {

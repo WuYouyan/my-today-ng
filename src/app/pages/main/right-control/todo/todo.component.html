@@ -6,7 +6,7 @@
             let-item>
     <nz-list-item class="todo-item"
                 (click)="click(item._id)"
-                (contextmenu)="contextMenu($event, todoContextRef, item._id)">
+                (contextmenu)="contextMenu($event, menu, item._id)">
       <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="nzDescription">
         <ng-template #nzTitle>
           <label nz-checkbox
@@ -35,7 +35,7 @@
   </ng-template>
 </nz-list>
 
-<nz-dropdown-menu #todoContextRef="nzDropdownMenu">
+<nz-dropdown-menu #menu="nzDropdownMenu">
   <ul nz-menu nzInDropDown (nzClick)="close()">
     <li nz-menu-item
         (click)="setToday()">
@@ -64,6 +64,12 @@
         (click)="delete()">
       <i nz-icon nzType="delete"></i>
       <span class="danger">remove</span>
+    </li>
+    <li nz-menu-item
+        *ngIf="this.listService.currentUuid !== 'today'"
+        (click)="deleteAll()">
+      <i nz-icon nzType="delete"></i>
+      <span class="danger">remove all</span>
     </li>
   </ul>
 </nz-dropdown-menu>
